@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const FormLoader = (props) => {
+function FormLoader(props) {
 	const { formBars } = props;
 	return (
 		<div className="card">
@@ -21,6 +21,6 @@ const FormLoader = (props) => {
 			</div>
 		</div>
 	);
-};
+}
 
 export default FormLoader;

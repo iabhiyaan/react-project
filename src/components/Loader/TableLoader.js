@@ -1,6 +1,6 @@
 import React from "react";
 
-const TableLoader = (props) => {
+function TableLoader(props) {
 	const { tableBars, darkMode } = props;
 	return (
 		<div className="card" style={darkMode && { backgroundColor: "#23282c" }}>
@@ -32,6 +32,6 @@ const TableLoader = (props) => {
 			</div>
 		</div>
 	);
-};
+}
 
 export default TableLoader;
