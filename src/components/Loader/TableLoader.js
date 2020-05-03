@@ -1,27 +1,27 @@
 import React from "react";
 
 const TableLoader = (props) => {
-	const { animatedBars, darkMode } = props;
+	const { tableBars, darkMode } = props;
 	return (
 		<div className="card" style={darkMode && { backgroundColor: "#23282c" }}>
 			<div className="card-body">
 				<table className="table">
 					<thead>
 						<tr>
-							{animatedBars &&
-								animatedBars.map((_) => (
-									<th scope="col">
+							{tableBars &&
+								tableBars.map((_, index) => (
+									<th key={index} scope="col">
 										<div className="notice--loading__bar infiniteLinearAnimated" />
 									</th>
 								))}
 						</tr>
 					</thead>
 					<tbody>
-						{animatedBars &&
-							animatedBars.map((_) => (
-								<tr>
-									{animatedBars.map((_) => (
-										<td>
+						{tableBars &&
+							tableBars.map((_, index) => (
+								<tr key={index}>
+									{tableBars.map((_, index) => (
+										<td key={index}>
 											<div className="notice--loading__bar infiniteLinearAnimated" />
 										</td>
 									))}

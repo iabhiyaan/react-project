@@ -9,7 +9,7 @@ class Dashboard extends Component {
 			<div className="animated fadeIn">
 				<Row>
 					<Col xs="12" sm="6" lg="3">
-						<Loader barCount={2} />
+						<Loader forms />
 					</Col>
 				</Row>
 			</div>

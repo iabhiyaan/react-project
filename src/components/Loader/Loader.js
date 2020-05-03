@@ -1,25 +1,34 @@
 import React from "react";
 
 import TableLoader from "./TableLoader";
+import FormLoader from "./FormLoader";
 import "./Loader.scss";
 
 function Loader(props) {
-	const { table, tableNums, darkMode, barCount } = props;
+	const { table, tableNums, darkMode, barCount, forms, formBarCounts } = props;
 
-	const animatedBarCount = tableNums || 4;
-	const animatedBars = Array.from({ length: animatedBarCount });
+	const totalBars = (counts) => {
+		return Array.from({ length: counts || 4 });
+	};
 
-	const simpleBars = barCount || 4;
-	const bars = Array.from({ length: simpleBars });
+	const bars = totalBars(barCount);
+
+	const tableBars = totalBars(tableNums);
+	const formBars = totalBars(formBarCounts);
 
 	if (table) {
-		return <TableLoader animatedBars={animatedBars} darkMode={darkMode} />;
+		return <TableLoader tableBars={tableBars} darkMode={darkMode} />;
+	} else if (forms) {
+		return <FormLoader formBars={formBars} />;
 	}
 
 	return (
 		<div className="card">
 			<div className="card-body">
-				{bars && bars.map((_) => <div className="notice--loading__bar infiniteLinearAnimated mb-2" />)}
+				{bars &&
+					bars.map((_, index) => (
+						<div key={index} className="notice--loading__bar infiniteLinearAnimated mb-2" />
+					))}
 			</div>
 		</div>
 	);
