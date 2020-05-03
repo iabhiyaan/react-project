@@ -14,12 +14,7 @@ class Footer extends Component {
 
 		return (
 			<React.Fragment>
-				<span>
-					<a href="https://coreui.io">CoreUI</a> &copy; 2019 Dash Layout
-				</span>
-				<span className="ml-auto">
-					Powered by <a href="https://coreui.io/react">CoreUI Dashboard</a>
-				</span>
+				<span className="ml-auto">Powered by Hamro Attendance</span>
 			</React.Fragment>
 		);
 	}

@@ -5,6 +5,7 @@ import "./App.scss";
 
 // components
 import Skeleton from "./components/Skeleton/Skeleton";
+import Loader from "./components/Loader/Loader";
 
 // Containers
 const Layout = React.lazy(() => import("./containers/Layout"));
@@ -19,7 +20,7 @@ class App extends Component {
 	render() {
 		return (
 			<BrowserRouter>
-				<React.Suspense fallback={<Skeleton num="4" />}>
+				<React.Suspense fallback={<Skeleton nums={4} />}>
 					<Switch>
 						<Route exact path="/login" name="Login Page" render={(props) => <Login {...props} />} />
 						<Route
