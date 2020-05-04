@@ -5,19 +5,18 @@ import FormLoader from "./FormLoader";
 import "./Loader.scss";
 
 function Loader(props) {
-	const { table, tableNums, darkMode, barCount, forms, formBarCounts } = props;
+	const { table, tableBarCounts, mode, barCounts, forms, formBarCounts } = props;
 
 	const totalBars = (counts) => {
 		return Array.from({ length: counts || 4 });
 	};
 
-	const bars = totalBars(barCount);
-
-	const tableBars = totalBars(tableNums);
+	const bars = totalBars(barCounts);
+	const tableBars = totalBars(tableBarCounts);
 	const formBars = totalBars(formBarCounts);
 
 	if (table) {
-		return <TableLoader tableBars={tableBars} darkMode={darkMode} />;
+		return <TableLoader tableBars={tableBars} mode={mode} />;
 	} else if (forms) {
 		return <FormLoader formBars={formBars} />;
 	}
