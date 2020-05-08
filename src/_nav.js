@@ -17,18 +17,18 @@ export default {
 			}
 		},
 		{
-			name: "Brand",
-			url: "/brand",
+			name: "Faculty",
+			url: "/faculty",
 			icon: "fa fa-database",
 			children: [
 				{
-					name: "Add Brand",
-					url: "/brand/add-brand",
+					name: "Add Faculty",
+					url: "/faculty/add-faculty",
 					icon: "fa fa-plus"
 				},
 				{
-					name: "Brand List",
-					url: "/brand/brand-list",
+					name: "Faculty List",
+					url: "/faculty/faculty-list",
 					icon: "fa fa-list"
 				},
 				{
