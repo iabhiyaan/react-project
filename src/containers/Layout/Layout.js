@@ -66,7 +66,12 @@ class Layout extends Component {
 												path={route.path}
 												exact={route.exact}
 												name={route.name}
-												render={(props) => <route.component {...props} />}
+												render={(props) =>
+													localStorage.getItem("authToken") !== null ? (
+														<route.component {...props} />
+													) : (
+														<Redirect to={{ pathname: "/login" }} />
+													)}
 											/>
 										) : null;
 									})}

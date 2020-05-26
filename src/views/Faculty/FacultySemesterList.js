@@ -1,29 +1,61 @@
 import React, { Component } from "react";
 import { Card, CardBody, Button, Table } from "reactstrap";
 
-import Modals from "../../components/Modals/Modals";
+import Modals from "../../components/Modals/ModalFSY";
 
-class FacultyList extends Component {
+class FacultySemesterList extends Component {
 	state = {
 		isEdit: false,
 		modal: false,
-		currentFaculty: null,
+		currentFacultyYear: null,
 		datas: [
 			{
-				F_ID: 6,
-				F_Name: "BBS"
+				FS_ID: 1,
+				FS_Name: "First",
+				FY_ID: 1,
+				FY_Name: "I"
 			},
 			{
-				F_ID: 8,
-				F_Name: "BCA"
+				FS_ID: 2,
+				FS_Name: "Second",
+				FY_ID: 1,
+				FY_Name: "I"
 			},
 			{
-				F_ID: 9,
-				F_Name: "BSW"
+				FS_ID: 3,
+				FS_Name: "Third",
+				FY_ID: 2,
+				FY_Name: "II"
 			},
 			{
-				F_ID: 10,
-				F_Name: "BSc. CSIT"
+				FS_ID: 4,
+				FS_Name: "Fourth",
+				FY_ID: 2,
+				FY_Name: "II"
+			},
+			{
+				FS_ID: 5,
+				FS_Name: "Fifth",
+				FY_ID: 3,
+				FY_Name: "III"
+			},
+			{
+				FS_ID: 6,
+				FS_Name: "Sixth",
+				FY_ID: 3,
+				FY_Name: "III"
+			},
+			{
+				FS_ID: 7,
+				FS_Name: "Seventh",
+				FY_ID: 4,
+				FY_Name: "IV"
+			},
+			{
+				FS_ID: 8,
+				FS_Name: "Eighth",
+				FY_ID: 4,
+				FY_Name: "IV"
 			}
 		]
 	};
@@ -33,7 +65,7 @@ class FacultyList extends Component {
 			return {
 				...prevState,
 				modal: !prevState.modal,
-				currentFaculty: data
+				currentFacultyYear: data
 			};
 		});
 	};
@@ -56,7 +88,8 @@ class FacultyList extends Component {
 						<thead>
 							<tr>
 								<th>SN</th>
-								<th>Faculty Name</th>
+								<th>Faculty Year</th>
+								<th>Faculty Semester</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
@@ -66,12 +99,13 @@ class FacultyList extends Component {
 									return (
 										<tr key={key}>
 											<td>{++key}</td>
-											<td>{data.F_Name}</td>
+											<td>{data.FY_Name}</td>
+											<td>{data.FS_Name}</td>
 											<td>
 												<Button onClick={() => this.toggleModal(data)} color="primary">
 													Edit
 												</Button>{" "}
-												<Button onClick={() => this.handleDelete(data.F_ID)} color="danger">
+												<Button onClick={() => this.handleDelete(data.FS_ID)} color="danger">
 													Delete
 												</Button>
 											</td>
@@ -81,7 +115,7 @@ class FacultyList extends Component {
 						</tbody>
 					</Table>
 					<Modals
-						currentFaculty={this.state.currentFaculty}
+						currentFacultyYear={this.state.currentFacultyYear}
 						handleClick={this.toggleModal}
 						modal={this.state.modal}
 					/>
@@ -91,4 +125,4 @@ class FacultyList extends Component {
 	}
 }
 
-export default FacultyList;
+export default FacultySemesterList;

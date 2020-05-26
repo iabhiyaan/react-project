@@ -32,6 +32,11 @@ export default {
 					icon: "fa fa-list"
 				},
 				{
+					name: "Faculty Semester List",
+					url: "/faculty/faculty-semester-list",
+					icon: "fa fa-list"
+				},
+				{
 					name: "Product List",
 					url: "/product/product-list",
 					icon: "fa fa-list"

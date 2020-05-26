@@ -2,23 +2,26 @@ import React, { useState, useEffect } from "react";
 import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 
 function Modals(props) {
-	const { className, modal, handleClick, currentFaculty } = props;
-	const [ F_Name, setF_Name ] = useState("");
+	const { className, modal, handleClick, currentFacultyYear } = props;
+	const [ FY_Name, setFY_Name ] = useState("");
+	const [ FS_Name, setFS_Name ] = useState("");
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
 		// API Call to edit the name
 
-		setF_Name("");
+		setFY_Name("");
+		setFS_Name("");
 		handleClick();
 	};
 	useEffect(
 		() => {
-			if (currentFaculty) {
-				setF_Name(currentFaculty.F_Name);
+			if (currentFacultyYear) {
+				setFY_Name(currentFacultyYear.FY_Name);
+				setFS_Name(currentFacultyYear.FS_Name);
 			}
 		},
-		[ currentFaculty ]
+		[ currentFacultyYear ]
 	);
 
 	return (
@@ -26,13 +29,23 @@ function Modals(props) {
 			<ModalBody>
 				<form onSubmit={handleSubmit}>
 					<div className="form-group">
-						<label>Faculty name</label>
+						<label>Faculty Year</label>
 						<input
 							className="form-control"
 							type="text"
-							name="F_Name"
-							value={F_Name}
-							onChange={(e) => setF_Name(e.target.value)}
+							name="FY_Name"
+							value={FY_Name}
+							onChange={(e) => setFY_Name(e.target.value)}
+						/>
+					</div>
+					<div className="form-group">
+						<label>Faculty Semester</label>
+						<input
+							className="form-control"
+							type="text"
+							name="FS_Name"
+							value={FS_Name}
+							onChange={(e) => setFS_Name(e.target.value)}
 						/>
 					</div>
 				</form>
